@@ -262,6 +262,7 @@ static void updatetitle(Client *c);
 static void updatewindowtype(Client *c);
 static void updatewmhints(Client *c);
 static void view(const Arg *arg);
+static void viewnext(const Arg *arg);
 static Client *wintoclient(Window w);
 static Monitor *wintomon(Window w);
 static Client *wintosystrayicon(Window w);
@@ -2453,6 +2454,20 @@ view(const Arg *arg)
 		selmon->tagset[selmon->seltags] = arg->ui & TAGMASK;
 	focus(NULL);
 	arrange(selmon);
+}
+
+void
+viewnext(const Arg *arg)
+{
+    Arg a;
+    unsigned int last = selmon->tagset[selmon->seltags];
+    
+    if(arg->i > 0)
+        a.ui = last << arg->i | last >> (LENGTH(tags) - arg->i);
+    else
+        a.ui = last >> -arg->i | last << (LENGTH(tags) + arg->i);
+
+    view(&a);
 }
 
 Client *

@@ -122,10 +122,10 @@ static Key keys[] = {
 	{ 0 M,        XK_0,                    view,           {.ui = ~0u } },
 	{ 0 M S,      XK_0,                    tag,            {.ui = ~0u } },
 
-	//{ 0 M,        XK_comma,                viewnext,       {.i = -1 } },
-	//{ 0 M,        XK_period,               viewnext,       {.i = +1 } },
-	//{ 0 M S,      XK_comma,                viewnext,       {.i = -3 } },
-	//{ 0 M S,      XK_period,               viewnext,       {.i = +3 } },
+	{ 0 M,        XK_comma,                viewnext,       {.i = -1 } },
+	{ 0 M,        XK_period,               viewnext,       {.i = +1 } },
+	{ 0 M S,      XK_comma,                viewnext,       {.i = -3 } },
+	{ 0 M S,      XK_period,               viewnext,       {.i = +3 } },
 
 
 	{ 0 M S,      XK_e,                    quit,           {0} },
