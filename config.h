@@ -130,6 +130,7 @@ static Key keys[] = {
 
 	{ 0 M S,      XK_e,                    quit,           {0} },
 	{ 0 M S C,    XK_e,                    quit,           {1} }, 
+	{ 0 M ,       XK_f,                    togglebar,      {1} }, 
 	//{ 0,          MODKEY,                 holdbar,        {0} },
 
 	TAGKEYS(      XK_1,                    0)
