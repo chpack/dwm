@@ -95,6 +95,7 @@ static Key keys[] = {
 	{ 0 M,        XK_i,                    spawn,          {.v = music} },
 	{ 0 M,        XK_e,                    spawn,          {.v = file} },
 	{ 0 M,        XK_n,                    spawn,          {.v = network} },
+	{ 0 M,        XK_v,                    spawn,          {.v = volumn} },
 
     { 0,          XF86XK_AudioLowerVolume, spawn,          {.v = vdown} },
     { 0,          XF86XK_AudioRaiseVolume, spawn,          {.v = vumnup} },
