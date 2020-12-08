@@ -22,6 +22,7 @@ static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
 	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
+	[SchemeHid]  = { col_cyan,  col_gray1, col_cyan  },
 };
 
 /* tagging */
@@ -56,6 +57,7 @@ static const Layout layouts[] = {
 	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
 	{ MODKEY|ShiftMask,             KEY,      tag,            {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} },
+#define HOLDKEY 0 // replace 0 with the keysym to activate holdbar
 
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
@@ -81,6 +83,10 @@ static const char *bldown[]     = { "xbacklight", "-dec", "10", NULL};
 static const char *blup[]       = { "xbacklight", "-inc", "10", NULL};
 
 static const char *lock[]       = { "blurlock", NULL};
+
+/* commands spawned when clicking statusbar, the mouse button pressed is exported as BUTTON */
+static char *statuscmds[] = { "notify-send Mouse$BUTTON" };
+static char *statuscmd[] = { "/bin/sh", "-c", NULL, NULL };
 
 #define M | MODKEY
 #define S | ShiftMask
@@ -152,8 +158,12 @@ static Button buttons[] = {
      */
     {ClkLtSymbol,   0   ,   Button1,        setlayout,      {0}},
     {ClkLtSymbol,   0   ,   Button3,        setlayout,      {.v = &layouts[2]}},
+	{ClkWinTitle,   0   ,   Button1,        togglewin,      {0} },
     {ClkWinTitle,   0   ,   Button2,        zoom,           {0}},
-    {ClkStatusText, 0   ,   Button2,        spawn,          {.v = termcmd}},
+//  {ClkStatusText, 0   ,   Button2,        spawn,          {.v = termcmd}},
+	{ClkStatusText, 0   ,   Button1,        spawn,          {.v = statuscmd } },
+	{ClkStatusText, 0   ,   Button2,        spawn,          {.v = statuscmd } },
+	{ClkStatusText, 0   ,   Button3,        spawn,          {.v = statuscmd } },
     {ClkClientWin,  0  M,   Button1,        movemouse,      {0}},
     {ClkClientWin,  0  M,   Button2,        togglefloating, {0}},
     {ClkClientWin,  0  M,   Button3,        resizemouse,    {0}},
