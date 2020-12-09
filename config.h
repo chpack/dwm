@@ -75,6 +75,7 @@ static const char *music[]      = { "netease-cloud-music", NULL };
 static const char *file[]       = { "rang", NULL };
 static const char *le[]         = { "rang", NULL };
 static const char *volumn[]     = { "pavucontrol-qt", NULL };
+static const char *screenshot[] = { "flameshot", "gui", NULL };
 
 static const char *vmute[]      = { "amixer", "set", "Master", "toggle", NULL};
 static const char *vumnup[]     = { "amixer", "set", "Master", "10%+", NULL};
@@ -102,6 +103,7 @@ static Key keys[] = {
 	{ 0 M,        XK_e,                    spawn,          {.v = file} },
 	{ 0 M,        XK_n,                    spawn,          {.v = network} },
 	{ 0 M,        XK_v,                    spawn,          {.v = volumn} },
+    { 0 M S,      XK_s,                    spawn,          {.v = screenshot} },
 
     { 0,          XF86XK_AudioLowerVolume, spawn,          {.v = vdown} },
     { 0,          XF86XK_AudioRaiseVolume, spawn,          {.v = vumnup} },
