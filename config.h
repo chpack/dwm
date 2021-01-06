@@ -167,6 +167,7 @@ static Button buttons[] = {
 	{ClkStatusText, 0   ,   Button2,        spawn,          {.v = statuscmd } },
 	{ClkStatusText, 0   ,   Button3,        spawn,          {.v = statuscmd } },
     {ClkClientWin,  0  M,   Button1,        movemouse,      {0}},
+    {ClkClientWin,  0 S M,  Button1,        resizemouse,    {0}},
     {ClkClientWin,  0  M,   Button2,        togglefloating, {0}},
     {ClkClientWin,  0  M,   Button3,        resizemouse,    {0}},
     {ClkClientWin,  0  M,   Button4,        focusstack,     {.i = -1}},
