@@ -85,7 +85,7 @@ enum { NetSupported, NetWMName, NetWMState, NetWMCheck,
 enum { Manager, Xembed, XembedInfo, XLast }; /* Xembed atoms */
 enum { WMProtocols, WMDelete, WMState, WMTakeFocus, WMLast }; /* default atoms */
 enum { ClkTagBar, ClkLtSymbol, ClkStatusText, ClkWinTitle,
-       ClkClientWin, ClkRootWin, ClkLast }; /* clicks */
+       ClkClientWin, ClkRootWin, ClkLast, ClkAll }; /* clicks */
 
 typedef union {
 	int i;
@@ -598,7 +598,7 @@ buttonpress(XEvent *e)
 		click = ClkClientWin;
 	}
 	for (i = 0; i < LENGTH(buttons); i++)
-		if (click == buttons[i].click && buttons[i].func && buttons[i].button == ev->button
+		if ((click == buttons[i].click || ClkAll == buttons[i].click) && buttons[i].func && buttons[i].button == ev->button
 		&& CLEANMASK(buttons[i].mask) == CLEANMASK(ev->state))
 			buttons[i].func((click == ClkTagBar || click == ClkWinTitle) && buttons[i].arg.i == 0 ? &arg : &buttons[i].arg);
 }
