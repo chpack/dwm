@@ -172,6 +172,8 @@ static Button buttons[] = {
     {ClkClientWin,  0  M,   Button3,        resizemouse,    {0}},
     {ClkClientWin,  0  M,   Button4,        focusstack,     {.i = -1}},
     {ClkClientWin,  0  M,   Button5,        focusstack,     {.i = +1}},
+    {ClkAll,        0 S M,  Button4,        viewnext,     {.i = -1}},
+    {ClkAll,        0 S M,  Button5,        viewnext,     {.i = +1}},
     {ClkTagBar,     0   ,   Button1,        view,           {0}},
     {ClkTagBar,     0   ,   Button3,        toggleview,     {0}},
     {ClkTagBar,     0  M,   Button1,        tag,            {0}},
